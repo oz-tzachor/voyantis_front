@@ -1,6 +1,7 @@
-import { useContext, useEffect, useState } from "react";
-import { getMsg } from "../../api/api";
+import { useContext, useEffect } from "react";
 import { MainContext, Queue } from "../../context/MainContext";
+import SingleQueue from "./Queue";
+import "../Layout/Layout.css";
 
 const QueuesList = () => {
   const dataContext = useContext(MainContext);
@@ -10,24 +11,11 @@ const QueuesList = () => {
   }, []);
 
   return (
-    <div>
-      queues list:
-      <div>
+    <div className="queuesList">
+      Queues list:
+      <div className="">
         {dataContext?.queues?.map((queue: Queue) => (
-          <div
-            key={queue.queueName}
-            style={{
-              border: "1px solid ",
-              borderRadius: "10px",
-              width: "80px",
-              padding: "20px",
-              margin: "auto",
-            }}
-          >
-            <div>Queue name: {queue.queueName}</div>
-            <div>Queue length: {queue.count}</div>
-            <div></div>
-          </div>
+          <SingleQueue queue={queue} />
         ))}
       </div>
     </div>
