@@ -1,13 +1,15 @@
 import { useContext } from "react";
 import { MainContext } from "../../context/MainContext";
 import QueuesList from "./QueuesList";
+import Header from "../Layout/Header";
+import Footer from "../Layout/Footer";
 
 const Data = () => {
-  const dataContext = useContext(MainContext);
-
   return (
-    <div>
+    <div className="layout">
+      <Header />
       <QueuesList />
+      <Footer />
     </div>
   );
 };
